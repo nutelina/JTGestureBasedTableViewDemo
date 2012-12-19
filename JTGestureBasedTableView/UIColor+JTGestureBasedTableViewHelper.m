@@ -1,6 +1,6 @@
 /*
  * This file is part of the JTGestureBasedTableView package.
- * (c) James Tang <mystcolor@gmail.com>
+ * (c) James Tang <mystcolor@gmail.com>, Paul van Nugteren <PMvanNugteren anAddSignHere gmail.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -57,4 +57,26 @@
     }
     return newColor;
 }
+
++ (UIColor *)DoneTextColor {
+    return [UIColor grayColor];
+}
+
++ (UIColor *)DoneCellBackgroundColor {
+    return [UIColor darkGrayColor];
+}
+
++(UIColor *)EditingStateBackgroundColorForDoneCell {
+    return [UIColor colorWithRed:0 green:0.6 blue:0.30 alpha:1];
+}
+
++ (UIColor *)tableViewCellHighestPriorityDefaultBackgroundColor {
+    return [UIColor colorWithRed:1 green:0.25 blue:0.15 alpha:1];
+    
+}
+
++ (UIColor *)tableView: (UITableView *) tableView CellBackgroundColor: (UIColor *) initialBackgroundColor AtIndexPath: (NSIndexPath *)indexPath {
+    return  [initialBackgroundColor colorWithHueOffset:0.12 * indexPath.row / [tableView numberOfRowsInSection:indexPath.section]];
+}
+
 @end
